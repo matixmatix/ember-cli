@@ -391,12 +391,12 @@ describe('Acceptance: brocfile-smoke-test', function() {
       });
   });
 
-  it('multiple paths can be CSS preprocessed', function() {
+  it.only('multiple paths can be CSS preprocessed', function() {
     return copyFixtureFiles('brocfile-tests/multiple-sass-files')
       .then(function() {
         var packageJsonPath = path.join(__dirname, '..', '..', 'tmp', appName, 'package.json');
         var packageJson = fs.readJsonSync(packageJsonPath);
-        packageJson.devDependencies['broccoli-sass'] = 'latest';
+        packageJson.devDependencies['ember-cli-sass'] = 'latest';
 
         return fs.writeJsonSync(packageJsonPath, packageJson);
       })
